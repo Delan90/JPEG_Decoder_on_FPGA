@@ -1,0 +1,145 @@
+AC_CLASS	jpeg.h	41
+AC_HT	jpeg.h	70
+AC_Table0	table_vld.c	24
+AC_Table1	table_vld.c	24
+ADD	fast_int_idct.c	/^#define ADD(x, y)	((x) + (y))$/
+ADD	tags	/^ADD	fast_int_idct.c	\/^#define ADD(x, y)	((x) + (y)/
+APP_MK	jpeg.h	18
+CID	jpeg.h	60
+CMUL	fast_int_idct.c	/^#define CMUL(C, x)	(((C) * (x) + (1 << (C_BITS-1))/
+CMapLength	utils.c	202
+CMapType	utils.c	201
+COM_MK	jpeg.h	19
+C_BITS	fast_int_idct.c	23
+DC_CLASS	jpeg.h	40
+DC_HT	jpeg.h	69
+DC_Table0	table_vld.c	22
+DC_Table1	table_vld.c	22
+DESCALE	fast_int_idct.c	/^#define DESCALE(x, n)	(((x) + (1 << ((n)-1)) - ((x/
+DHT_MK	jpeg.h	22
+DQT_MK	jpeg.h	23
+DRI_MK	jpeg.h	24
+Depth	utils.c	198
+EOI_MK	jpeg.h	25
+FBlock	jpeg.h	55
+FBuff	jpegtobmp.c	39
+FGETC	5kk03.c	/^unsigned int FGETC(volatile unsigned int *fi)$/
+FSEEK	5kk03.c	/^int FSEEK(int offset, int start)$/
+FTELL	5kk03.c	/^int FTELL()$/
+FrameBuffer	jpegtobmp.c	37
+G_ZZ	huffman.c	22
+HDIV	jpeg.h	65
+HS	jpeg.h	63
+HTable	table_vld.c	26
+HUFF_EOB	huffman.c	15
+HUFF_ID	jpeg.h	/^#define HUFF_ID(hclass, id)       (2 * (hclass) + /
+HUFF_ZRL	huffman.c	16
+Heigth	utils.c	197
+IDCT	fast_int_idct.c	/^void IDCT(const FBlock * input, PBlock * output)$/
+IDX	jpeg.h	61
+JPEG_H	jpeg.h	9
+JPGBUFFER_SIZE	jpeg.h	75
+JpegToBmp	jpegtobmp.c	/^int JpegToBmp(char *file1, char *file2)$/
+Length	utils.c	199
+MAGIC	utils.c	195
+MAX_SIZE	table_vld.c	/^#define MAX_SIZE(hclass)		((hclass)?162:14)$/
+MCU_buff	jpegtobmp.c	15
+MCU_column	jpegtobmp.c	45
+MCU_row	jpegtobmp.c	45
+MCU_sx	jpegtobmp.c	28
+MCU_sy	jpegtobmp.c	28
+MCU_valid	jpegtobmp.c	17
+MEMMAP_H	memmap.h	2
+MK_MSK	jpeg.h	26
+MaxCode	table_vld.c	32
+MinCode	table_vld.c	31
+Mmain	main.c	/^int main (void)$/
+Mmain	../mb2/main.c	/^int main (void)$/
+Mmain	../mb3/main.c	/^int main (void)$/
+OPTFLAGS	Makefile	1
+PBlock	jpeg.h	50
+PBuff	jpegtobmp.c	41
+PRED	jpeg.h	71
+QT	jpeg.h	68
+QTable	jpegtobmp.c	20
+QTvalid	jpegtobmp.c	21
+RGB_save	utils.c	/^void RGB_save(FILE * fo)$/
+RST_MK	jpeg.h	/^#define RST_MK(x)	( (0xFFF8&(x)) == 0xFFD0 )$/
+SCALE	fast_int_idct.c	/^#define SCALE(x,n)	((x) << (n))$/
+SOF_MK	jpeg.h	20
+SOI_MK	jpeg.h	17
+SOS_MK	jpeg.h	21
+SUB	fast_int_idct.c	/^#define SUB(x, y)	((x) - (y))$/
+S_BITS	fast_int_idct.c	21
+Saturate	color.c	/^#define Saturate(n)	((n) > 0 ? ((n) < 255 ? (n) : /
+Type	utils.c	200
+VDIV	jpeg.h	66
+VS	jpeg.h	64
+ValPtr	table_vld.c	33
+Width	utils.c	196
+X	fast_int_idct.c	/^#define X(i,j)		(output->block[i][j])$/
+Y	fast_int_idct.c	/^#define Y(i,j)		Y[8*i+j]$/
+__5KK03_H__	5kk03.h	2
+__SURFER_JPG_H	surfer.jpg.h	2
+aborted_stream	utils.c	/^void aborted_stream(FILE * fi)$/
+bin_dump	utils.c	/^void bin_dump(FILE * fi)$/
+bit_count	parse.c	19
+bit_counter	5kk03.c	8
+block	jpeg.h	48
+block	jpeg.h	53
+but	fast_int_idct.c	/^#define but(a,b,x,y)	{ x = SUB(a,b); y = ADD(a,b);/
+cd_t	jpeg.h	72
+ceil_div	utils.c	/^int ceil_div(int N, int D)$/
+clear_bits	parse.c	/^void clear_bits(void)$/
+clear_frame_buffer	jpegtobmp.c	/^void clear_frame_buffer()$/
+color_conversion	color.c	/^void color_conversion(long ddr_offset)$/
+comp	jpegtobmp.c	13
+curcomp	jpegtobmp.c	43
+fi	jpegtobmp.c	49
+fi	jpegtobmp.c	51
+first_quad	jpeg.h	/^#define first_quad(c)   ((c) >> 4)	\/* first 4 bits/
+floor_div	utils.c	/^int floor_div(int N, int D)$/
+free_structures	utils.c	/^void free_structures(void)$/
+get_bits	parse.c	/^unsigned long get_bits(FILE * fi, int number)$/
+get_next_MK	parse.c	/^unsigned int get_next_MK(FILE * fi)$/
+get_one_bit	parse.c	/^unsigned char get_one_bit(FILE * fi)$/
+get_size	parse.c	/^unsigned int get_size(FILE * fi)$/
+get_symbol	table_vld.c	/^unsigned char get_symbol(FILE * fi, int select)$/
+idct_1d	fast_int_idct.c	/^static void idct_1d(int *Y)$/
+in_frame	jpegtobmp.c	43
+init_MCU	parse.c	/^int init_MCU(void)$/
+jpeg_dec_main	jpegtobmp.c	/^int jpeg_dec_main()$/
+linear	jpeg.h	49
+linear	jpeg.h	54
+load_huff_tables	table_vld.c	/^int load_huff_tables(FILE * fi)$/
+load_quant_tables	parse.c	/^int load_quant_tables(FILE * fi)$/
+memmove_jpeg	utils.c	/^void memmove_jpeg(volatile unsigned char *dest, vo/
+memmove_jpeg_int	utils.c	/^void memmove_jpeg_int(volatile unsigned int *dest,/
+mx_size	jpegtobmp.c	30
+my_size	jpegtobmp.c	30
+n_comp	jpegtobmp.c	32
+pack_4char_int	jpegtobmp.c	/^unsigned int pack_4char_int(unsigned char a,unsign/
+passed	jpegtobmp.c	56
+printf_frame_buffer	jpegtobmp.c	/^void printf_frame_buffer()$/
+process_MCU	parse.c	/^int process_MCU(FILE * fi)$/
+reformat	utils.c	/^int reformat(unsigned long S, int good)$/
+reset_prediction	utils.c	/^void reset_prediction(void)$/
+rx_size	jpegtobmp.c	26
+ry_size	jpegtobmp.c	26
+second_quad	jpeg.h	/^#define second_quad(c)  ((c) & 15)$/
+show_FBlock	utils.c	/^void show_FBlock(FBlock * S)$/
+show_PBlock	utils.c	/^void show_PBlock(PBlock * S)$/
+skip_segment	parse.c	/^void skip_segment(FILE * fi)$/
+stuffers	jpegtobmp.c	54
+suicide	utils.c	/^void suicide(void)$/
+sunraster	utils.c	203
+surfer_jpg	surfer.jpg.h	4
+unpack_block	huffman.c	/^void unpack_block(FILE * fi, FBlock * T, int selec/
+verbose	jpegtobmp.c	58
+vld_count	jpegtobmp.c	62
+window	parse.c	20
+write_bmp	jpegtobmp.c	/^void write_bmp(const char *const file2)$/
+write_bmp_to_ddr	jpegtobmp.c	/^void write_bmp_to_ddr()$/
+write_bmp_to_ddr_1	jpegtobmp.c	/^void write_bmp_to_ddr_1()$/
+x_size	jpegtobmp.c	24
+y_size	jpegtobmp.c	24

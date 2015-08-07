@@ -1,0 +1,42 @@
+AC_CLASS	jpeg.h	39
+AC_HT	jpeg.h	68
+APP_MK	jpeg.h	16
+CID	jpeg.h	58
+COM_MK	jpeg.h	17
+DC_CLASS	jpeg.h	38
+DC_HT	jpeg.h	67
+DHT_MK	jpeg.h	20
+DQT_MK	jpeg.h	21
+DRI_MK	jpeg.h	22
+EOI_MK	jpeg.h	23
+FBlock	jpeg.h	53
+HDIV	jpeg.h	63
+HS	jpeg.h	61
+HUFF_ID	jpeg.h	/^#define HUFF_ID(hclass, id)       (2 * (hclass) + /
+IDX	jpeg.h	59
+JPEG_H	jpeg.h	9
+JPGBUFFER_SIZE	jpeg.h	73
+MEMMAP_H	memmap.h	2
+MK_MSK	jpeg.h	24
+Mmain	main.c	/^int main (void)$/
+PBlock	jpeg.h	48
+PRED	jpeg.h	69
+QT	jpeg.h	66
+RST_MK	jpeg.h	/^#define RST_MK(x)	( (0xFFF8&(x)) == 0xFFD0 )$/
+SOF_MK	jpeg.h	18
+SOI_MK	jpeg.h	15
+SOS_MK	jpeg.h	19
+Saturate	color.c	/^#define Saturate(n)	((n) > 0 ? ((n) < 255 ? (n) : /
+VDIV	jpeg.h	64
+VS	jpeg.h	62
+__5KK03_H__	5kk03.h	2
+__SURFER_JPG_H	surfer.jpg.h	2
+block	jpeg.h	46
+block	jpeg.h	51
+cd_t	jpeg.h	70
+color_conversion	color.c	/^void color_conversion(long ddr_offset)$/
+first_quad	jpeg.h	/^#define first_quad(c)   ((c) >> 4)	\/* first 4 bits/
+linear	jpeg.h	47
+linear	jpeg.h	52
+second_quad	jpeg.h	/^#define second_quad(c)  ((c) & 15)$/
+surfer_jpg	surfer.jpg.h	4
