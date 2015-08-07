@@ -1,0 +1,381 @@
+	output/Reference.pnm	10
+@#ÍÚúÍÒ°	output/Reference.pnm	91
+AC_CLASS	mb1/jpeg.h	61
+AC_CLASS	mb2/jpeg.h	39
+AC_CLASS	mb3/jpeg.h	39
+AC_HT	mb1/jpeg.h	93
+AC_HT	mb2/jpeg.h	68
+AC_HT	mb3/jpeg.h	68
+AC_Table0	mb1/table_vld.c	24
+AC_Table1	mb1/table_vld.c	24
+ADD	mb1/fast_int_idct.c	/^#define ADD(x, y)	((x) + (y))$/
+ADD	mb1/tags	/^ADD	fast_int_idct.c	\/^#define ADD(x, y)	((x) + (y)/
+ADD	mb2/fast_int_idct.c	/^#define ADD(x, y)	((x) + (y))$/
+APP_MK	mb1/jpeg.h	30
+APP_MK	mb2/jpeg.h	16
+APP_MK	mb3/jpeg.h	16
+BENCHMARK_H	mb_shared/benchmark.h	2
+BLOCK_IF_FULL	mb_shared/c-heap.h	36
+CHANGE_BUFFER	mb1/jpeg.h	/^#define CHANGE_BUFFER(_var) ((_var+1) & (NUM_OF_BL/
+CHeapStatus	mb_shared/c-heap.h	30
+CHeapTransferType	mb_shared/c-heap.h	37
+CID	mb1/jpeg.h	83
+CID	mb2/jpeg.h	58
+CID	mb3/jpeg.h	58
+CMEM_IN_SIZE	mb_shared/benchmark.h	4
+CMEM_OUT_SIZE	mb_shared/benchmark.h	5
+CMUL	mb1/fast_int_idct.c	/^#define CMUL(C, x)	(((C) * (x) + (1 << (C_BITS-1))/
+CMUL	mb2/fast_int_idct.c	/^#define CMUL(C, x)	(((C) * (x) + (1 << (C_BITS-1))/
+CMapLength	mb1/utils.c	205
+CMapType	mb1/utils.c	204
+COM_MK	mb1/jpeg.h	31
+COM_MK	mb2/jpeg.h	17
+COM_MK	mb3/jpeg.h	17
+C_BITS	mb1/fast_int_idct.c	23
+C_BITS	mb2/fast_int_idct.c	23
+Compnent	mb3/main.c	15
+DC_CLASS	mb1/jpeg.h	60
+DC_CLASS	mb2/jpeg.h	38
+DC_CLASS	mb3/jpeg.h	38
+DC_HT	mb1/jpeg.h	92
+DC_HT	mb2/jpeg.h	67
+DC_HT	mb3/jpeg.h	67
+DC_Table0	mb1/table_vld.c	22
+DC_Table1	mb1/table_vld.c	22
+DDR_pt_REMOTEADDR	mb_shared/benchmark.h	6
+DESCALE	mb1/fast_int_idct.c	/^#define DESCALE(x, n)	(((x) + (1 << ((n)-1)) - ((x/
+DESCALE	mb2/fast_int_idct.c	/^#define DESCALE(x, n)	(((x) + (1 << ((n)-1)) - ((x/
+DHT_MK	mb1/jpeg.h	34
+DHT_MK	mb2/jpeg.h	20
+DHT_MK	mb3/jpeg.h	20
+DMA	mb_shared/5kk03-utils.c	1
+DMA_RECEIVE_BLOCKING	mb_shared/benchmark.h	/^#define DMA_RECEIVE_BLOCKING(_dest,_src,_size,_cha/
+DMA_RECEIVE_NON_BLOCKING	mb_shared/benchmark.h	/^#define DMA_RECEIVE_NON_BLOCKING(_dest,_src,_size,/
+DMA_SEND_BLOCKING	mb_shared/benchmark.h	/^#define DMA_SEND_BLOCKING(_dest,_src,_size,_channe/
+DMA_SEND_NON_BLOCKING	mb_shared/benchmark.h	/^ #define DMA_SEND_NON_BLOCKING(_dest,_src,_size,_c/
+DMA_flag	mb1/benchmarking.c	15
+DMA_flag	mb2/benchmarking.c	13
+DMA_flag	mb3/benchmarking.c	12
+DQT_MK	mb1/jpeg.h	35
+DQT_MK	mb2/jpeg.h	21
+DQT_MK	mb3/jpeg.h	21
+DRI_MK	mb1/jpeg.h	36
+DRI_MK	mb2/jpeg.h	22
+DRI_MK	mb3/jpeg.h	22
+Depth	mb1/utils.c	201
+EOI_MK	mb1/jpeg.h	37
+EOI_MK	mb2/jpeg.h	23
+EOI_MK	mb3/jpeg.h	23
+EXIT_ERROR	mb_shared/c-heap.h	28
+EXIT_OK	mb_shared/c-heap.h	29
+FBlock	mb1/jpeg.h	78
+FBlock	mb2/jpeg.h	53
+FBlock	mb3/jpeg.h	53
+FBuff	mb1/jpegtobmp.c	39
+FGETC	mb1/5kk03.c	/^unsigned char FGETC(unsigned char *fi)$/
+FSEEK	mb1/5kk03.c	/^int FSEEK(int offset, int start)$/
+FTELL	mb1/5kk03.c	/^int FTELL()$/
+FrameBuffer	mb1/jpegtobmp.c	37
+FrameBuffer	mb3/color.c	32
+G_ZZ	mb1/huffman.c	22
+HDIV	mb1/jpeg.h	88
+HDIV	mb2/jpeg.h	63
+HDIV	mb3/jpeg.h	63
+HDIV	mb3/jpeg.h	78
+HS	mb1/jpeg.h	86
+HS	mb2/jpeg.h	61
+HS	mb3/jpeg.h	61
+HS	mb3/jpeg.h	79
+HTable	mb1/table_vld.c	26
+HUFF_EOB	mb1/huffman.c	15
+HUFF_ID	mb1/jpeg.h	/^#define HUFF_ID(hclass, id)       (2 * (hclass) + /
+HUFF_ID	mb2/jpeg.h	/^#define HUFF_ID(hclass, id)       (2 * (hclass) + /
+HUFF_ID	mb3/jpeg.h	/^#define HUFF_ID(hclass, id)       (2 * (hclass) + /
+HUFF_ZRL	mb1/huffman.c	16
+Heigth	mb1/utils.c	200
+IDCT	mb1/fast_int_idct.c	/^void IDCT(const FBlock * input, PBlock * output)$/
+IDCT	mb2/fast_int_idct.c	/^void IDCT(const FBlock * input, PBlock * output)$/
+IDX	mb1/jpeg.h	84
+IDX	mb2/jpeg.h	59
+IDX	mb3/jpeg.h	59
+IDX	mb3/jpeg.h	80
+INPUT_DMA	mb1/jpeg.h	13
+INPUT_READ_SIZE	mb1/jpeg.h	18
+INPUT_READ_SIZE_BITS	mb1/jpeg.h	19
+INPUT_READ_SIZE_INT	mb1/jpeg.h	17
+JPEG_H	mb1/jpeg.h	9
+JPEG_H	mb2/jpeg.h	9
+JPEG_H	mb3/jpeg.h	9
+JPGBUFFER_SIZE	mb1/jpeg.h	98
+JPGBUFFER_SIZE	mb2/jpeg.h	73
+JPGBUFFER_SIZE	mb3/jpeg.h	85
+JpegToBmp	mb1/jpegtobmp.c	/^int JpegToBmp()$/
+LOCALMEM	script/Measure.sh	2
+Length	mb1/utils.c	202
+MAGIC	mb1/utils.c	198
+MAX_SIZE	mb1/table_vld.c	/^#define MAX_SIZE(hclass)		((hclass)?162:14)$/
+MCU_buff	mb1/jpegtobmp.c	15
+MCU_column	mb1/jpegtobmp.c	45
+MCU_row	mb1/jpegtobmp.c	45
+MCU_sx	mb1/jpegtobmp.c	28
+MCU_sx	mb3/main.c	16
+MCU_sy	mb1/jpegtobmp.c	28
+MCU_sy	mb3/main.c	16
+MCU_valid	mb1/jpegtobmp.c	17
+MEMMAP_H	mb1/memmap.h	2
+MEMMAP_H	mb2/memmap.h	2
+MEMMAP_H	mb3/memmap.h	2
+MK_MSK	mb1/jpeg.h	38
+MK_MSK	mb2/jpeg.h	24
+MK_MSK	mb3/jpeg.h	24
+MON_ERROR_DMA_UNALIGNED	mb_shared/5kk03-utils.c	40
+MY_FREE	mb_shared/benchmark.h	/^#define MY_FREE(__ptr) \\$/
+MY_MK_CALLOC	mb_shared/benchmark.h	/^#define MY_MK_CALLOC(__ptr,__type,__size)\\$/
+MY_MK_MALLOC	mb_shared/benchmark.h	/^#define MY_MK_MALLOC(__ptr,__type,__size)\\$/
+MaxCode	mb1/table_vld.c	32
+Mbenchmarking	mb1/benchmarking.c	/^int main (void)$/
+Mbenchmarking	mb2/benchmarking.c	/^int main (void)$/
+Mbenchmarking	mb3/benchmarking.c	/^int main (void)$/
+MinCode	mb1/table_vld.c	31
+Mmain	mb1/main.c	/^int main (void)$/
+Mmain	mb2/main.c	/^ int main(void)$/
+Mmain	mb3/main.c	/^int main(void)$/
+NO_BLOCK_IF_FULL	mb_shared/c-heap.h	35
+NUM_OF_BLOCKS	mb1/jpeg.h	20
+NUM_OF_INIT_BUFF_LOAD	mb1/jpeg.h	21
+NewCmp	mb3/jpeg.h	82
+PATTERN	mb_shared/benchmark.h	8
+PBlock	mb1/jpeg.h	73
+PBlock	mb2/jpeg.h	48
+PBlock	mb3/jpeg.h	48
+PBuff	mb1/jpegtobmp.c	41
+PRED	mb1/jpeg.h	94
+PRED	mb2/jpeg.h	69
+PRED	mb3/jpeg.h	69
+PÌUùÓU†ÔT†ÔT†ÔT†ÔT†ÔT†ÔT†ÔT†ÔT†ÔT†ÔT†ÔT†ÔT†	output/Reference.pnm	87
+Q	output/Reference.pnm	94
+Q	output/Reference.pnm	96
+Q	output/Reference.pnm	100
+Q	output/Reference.pnm	119
+QT	mb1/jpeg.h	91
+QT	mb2/jpeg.h	66
+QT	mb3/jpeg.h	66
+QTable	mb1/jpegtobmp.c	20
+QTvalid	mb1/jpegtobmp.c	21
+QÓU†ÔUûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVû	output/Reference.pnm	94
+QÓU†ÔUûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVû	output/Reference.pnm	96
+QÓU†ÔUûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVû	output/Reference.pnm	100
+QÓU†ÔUûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVû	output/Reference.pnm	181
+QÓU†ÔUûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓVûÓ	output/Reference.pnm	185
+REMOTE_BASE_ADDRESS	mb_shared/c-heap.h	43
+REMOTE_SHARED_ADDRESS	mb_shared/c-heap.h	44
+RGB_save	mb1/utils.c	/^void RGB_save(FILE * fo)$/
+RST_MK	mb1/jpeg.h	/^#define RST_MK(x)	( (0xFFF8&(x)) == 0xFFD0 )$/
+RST_MK	mb2/jpeg.h	/^#define RST_MK(x)	( (0xFFF8&(x)) == 0xFFD0 )$/
+RST_MK	mb3/jpeg.h	/^#define RST_MK(x)	( (0xFFF8&(x)) == 0xFFD0 )$/
+SCALE	mb1/fast_int_idct.c	/^#define SCALE(x,n)	((x) << (n))$/
+SCALE	mb2/fast_int_idct.c	/^#define SCALE(x,n)	((x) << (n))$/
+SOF_MK	mb1/jpeg.h	32
+SOF_MK	mb2/jpeg.h	18
+SOF_MK	mb3/jpeg.h	18
+SOI_MK	mb1/jpeg.h	29
+SOI_MK	mb2/jpeg.h	15
+SOI_MK	mb3/jpeg.h	15
+SOS_MK	mb1/jpeg.h	33
+SOS_MK	mb2/jpeg.h	19
+SOS_MK	mb3/jpeg.h	19
+SUB	mb1/fast_int_idct.c	/^#define SUB(x, y)	((x) - (y))$/
+SUB	mb2/fast_int_idct.c	/^#define SUB(x, y)	((x) - (y))$/
+S_BITS	mb1/fast_int_idct.c	21
+S_BITS	mb2/fast_int_idct.c	21
+Saturate	mb1/color.c	/^#define Saturate(n)	((n) > 0 ? ((n) < 255 ? (n) : /
+Saturate	mb3/color.c	/^#define Saturate(n)	((n) > 0 ? ((n) < 255 ? (n) : /
+T	mb3/jpeg.h	81
+TOTAL_BLOCK_SIZE	mb1/jpeg.h	22
+Type	mb1/utils.c	203
+TõÔT†ÓVûÓVûÓVûÓVûÓVûÓV	output/Reference.pnm	196
+VDIV	mb1/jpeg.h	89
+VDIV	mb2/jpeg.h	64
+VDIV	mb3/jpeg.h	64
+VDIV	mb3/jpeg.h	77
+VS	mb1/jpeg.h	87
+VS	mb2/jpeg.h	62
+VS	mb3/jpeg.h	62
+Val	mb3/jpeg.h	74
+ValPtr	mb1/table_vld.c	33
+WRAP_RST_MASK	mb_shared/c-heap.h	40
+WRAP_SET_MASK	mb_shared/c-heap.h	39
+WR_RD_MASK	mb_shared/c-heap.h	41
+Width	mb1/utils.c	199
+X	mb1/fast_int_idct.c	/^#define X(i,j)		(output->block[i][j])$/
+X	mb2/fast_int_idct.c	/^#define X(i,j)		(output->block[i][j])$/
+Y	mb1/fast_int_idct.c	/^#define Y(i,j)		Y[8*i+j]$/
+Y	mb2/fast_int_idct.c	/^#define Y(i,j)		Y[8*i+j]$/
+__5KK03_H__	mb1/5kk03.h	2
+__5KK03_H__	mb2/5kk03.h	2
+__5KK03_H__	mb3/5kk03.h	2
+__5KK03_UTILS_H__	mb_shared/5kk03-utils.h	2
+__SURFER_JPG_H	mb1/surfer.jpg.h	2
+__SURFER_JPG_H	mb2/surfer.jpg.h	2
+__SURFER_JPG_H	mb3/surfer.jpg.h	2
+aborted_stream	mb1/utils.c	/^void aborted_stream(FILE * fi)$/
+bench_dyna_mem_size	mb1/benchmarking.c	16
+bench_dyna_mem_size	mb2/benchmarking.c	14
+bench_dyna_mem_size	mb3/benchmarking.c	13
+bench_mark_fill_pattern_to_cmem	mb1/benchmarking.c	/^void bench_mark_fill_pattern_to_cmem()$/
+bench_mark_fill_pattern_to_cmem	mb2/benchmarking.c	/^void bench_mark_fill_pattern_to_cmem()$/
+bench_mark_fill_pattern_to_cmem	mb3/benchmarking.c	/^void bench_mark_fill_pattern_to_cmem()$/
+bench_mark_fill_pattern_to_dram	mb1/benchmarking.c	/^void bench_mark_fill_pattern_to_dram() $/
+bench_mark_measure_cmem_usage	mb1/benchmarking.c	/^unsigned int bench_mark_measure_cmem_usage()$/
+bench_mark_measure_cmem_usage	mb2/benchmarking.c	/^int bench_mark_measure_cmem_usage()$/
+bench_mark_measure_cmem_usage	mb3/benchmarking.c	/^int bench_mark_measure_cmem_usage()$/
+bench_mark_measure_dram_usage	mb1/benchmarking.c	/^unsigned int bench_mark_measure_dram_usage()$/
+bin_dump	mb1/utils.c	/^void bin_dump(FILE * fi)$/
+bit_count	mb1/parse.c	20
+bit_counter	mb1/5kk03.c	8
+block	mb1/jpeg.h	71
+block	mb1/jpeg.h	76
+block	mb2/jpeg.h	46
+block	mb2/jpeg.h	51
+block	mb3/jpeg.h	46
+block	mb3/jpeg.h	51
+buff_sel	mb1/jpegtobmp.c	72
+but	mb1/fast_int_idct.c	/^#define but(a,b,x,y)	{ x = SUB(a,b); y = ADD(a,b);/
+but	mb2/fast_int_idct.c	/^#define but(a,b,x,y)	{ x = SUB(a,b); y = ADD(a,b);/
+c#q¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿CpøCpøCn¿CpøCn¿Cn¿Cn¿CTê3	output/Reference.pnm	96
+c#q¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿CpøCpøCn¿CpøCn¿Cn¿Cn¿CTê3	output/Reference.pnm	100
+cd_t	mb1/jpeg.h	95
+cd_t	mb2/jpeg.h	70
+cd_t	mb3/jpeg.h	70
+ceil_div	mb1/utils.c	/^int ceil_div(int N, int D)$/
+cheap_C_HEAP_H	mb_shared/c-heap.h	2
+cheap_claim_data	mb_shared/c-heap_consumer.c	/^void* cheap_claim_data(volatile fifo_t* adm)$/
+cheap_claim_space	mb_shared/c-heap_producer.c	/^unsigned int cheap_claim_space(volatile fifo_t* ad/
+cheap_init_fifo	mb_shared/c-heap_producer.c	/^CHeapStatus cheap_init_fifo(volatile fifo_t* produ/
+cheap_is_empty	mb_shared/c-heap_producer.c	/^unsigned int cheap_is_empty(volatile fifo_t* adm)$/
+cheap_read_fifo	mb_shared/c-heap_consumer.c	/^CHeapStatus cheap_read_fifo(volatile fifo_t* consu/
+cheap_release_data	mb_shared/c-heap_producer.c	/^void cheap_release_data(volatile fifo_t* producer_/
+cheap_release_space	mb_shared/c-heap_consumer.c	/^void cheap_release_space(volatile fifo_t* consumer/
+cheap_remote_write	mb_shared/c-heap_producer.c	/^void cheap_remote_write(volatile fifo_t *producer_/
+cheap_write_fifo	mb_shared/c-heap_producer.c	/^CHeapStatus cheap_write_fifo(volatile fifo_t* prod/
+clear_bits	mb1/parse.c	/^void clear_bits(void)$/
+clear_frame_buffer	mb1/jpegtobmp.c	/^void clear_frame_buffer()$/
+cmem_input_circ_buff	mb1/jpegtobmp.c	53
+color_conversion	mb1/color.c	/^void color_conversion(int ddr_offset)$/
+color_conversion	mb3/color.c	/^void color_conversion(int ddr_offset, PBlock *MCU_/
+comp	mb1/jpegtobmp.c	13
+consumer	mb1/main.c	11
+consumer	mb2/main.c	10
+consumer	mb3/main.c	10
+consumer1	mb2/main.c	17
+consumer_data	mb1/main.c	13
+consumer_data1	mb2/main.c	19
+curcomp	mb1/jpegtobmp.c	43
+data_address	mb_shared/c-heap.h	17
+ddr_input	mb1/jpegtobmp.c	52
+ddr_input_chunck_offset	mb1/jpegtobmp.c	75
+ddr_vld_cnt	mb1/5kk03.c	13
+dma_address	mb_shared/c-heap.h	19
+dma_data_address	mb_shared/c-heap.h	21
+fi	mb1/jpegtobmp.c	49
+fi	mb1/jpegtobmp.c	51
+fifo_size	mb_shared/c-heap.h	15
+fifo_sync	mb1/main.c	16
+fifo_sync	mb2/main.c	11
+fifo_sync	mb3/main.c	11
+fifo_sync1	mb2/main.c	21
+fifo_sync_data	mb1/main.c	17
+fifo_sync_data1	mb2/main.c	22
+fifo_t	mb_shared/c-heap.h	7
+fifo_t	mb_shared/c-heap.h	22
+files	script/processResponse.sh	30
+first_quad	mb1/jpeg.h	/^#define first_quad(c)   ((c) >> 4)	\/* first 4 bits/
+first_quad	mb2/jpeg.h	/^#define first_quad(c)   ((c) >> 4)	\/* first 4 bits/
+first_quad	mb3/jpeg.h	/^#define first_quad(c)   ((c) >> 4)	\/* first 4 bits/
+floor_div	mb1/utils.c	/^int floor_div(int N, int D)$/
+free_structures	mb1/utils.c	/^void free_structures(void)$/
+get_bits	mb1/parse.c	/^unsigned long get_bits(FILE * fi, int number)$/
+get_next_MK	mb1/parse.c	/^unsigned int get_next_MK(FILE * fi)$/
+get_one_bit	mb1/parse.c	/^unsigned char get_one_bit(FILE * fi)$/
+get_size	mb1/parse.c	/^unsigned int get_size(FILE * fi)$/
+get_symbol	mb1/table_vld.c	/^unsigned char get_symbol(FILE * fi, int select)$/
+hw_dma_receive_addr	mb_shared/5kk03-utils.c	/^void hw_dma_receive_addr(void *dst, void*src, int /
+hw_dma_receive_non_block_addr	mb_shared/5kk03-utils.c	/^void hw_dma_receive_non_block_addr(void *dst, void/
+hw_dma_send_addr	mb_shared/5kk03-utils.c	/^void hw_dma_send_addr(void *dst, void*src, int blo/
+hw_dma_send_non_block_addr	mb_shared/5kk03-utils.c	/^void hw_dma_send_non_block_addr(void *dst, void*sr/
+hw_dma_status_addr	mb_shared/5kk03-utils.c	/^inline int hw_dma_status_addr(void *dma_base_addr)/
+idct_1d	mb1/fast_int_idct.c	/^static void idct_1d(int *Y)$/
+idct_1d	mb2/fast_int_idct.c	/^static void idct_1d(int *Y)$/
+in_frame	mb1/jpegtobmp.c	43
+init_MCU	mb1/parse.c	/^int init_MCU(void)$/
+j	script/processResponse.sh	5
+jpeg_dec_main	mb1/jpegtobmp.c	/^int jpeg_dec_main()$/
+likely	mb_shared/5kk03-utils.c	/^#define likely(x)    __builtin_expect (!!(x), 1)$/
+linear	mb1/jpeg.h	72
+linear	mb1/jpeg.h	77
+linear	mb2/jpeg.h	47
+linear	mb2/jpeg.h	52
+linear	mb3/jpeg.h	47
+linear	mb3/jpeg.h	52
+load_huff_tables	mb1/table_vld.c	/^int load_huff_tables(FILE * fi)$/
+load_quant_tables	mb1/parse.c	/^int load_quant_tables(FILE * fi)$/
+max	script/processResponse.sh	4
+memcpy_int	mb_shared/c-heap_consumer.c	/^static inline void memcpy_int(unsigned int * dst,v/
+memcpy_int	mb_shared/c-heap_producer.c	/^static inline void memcpy_int(unsigned int * dst,v/
+memmove_jpeg	mb1/utils.c	/^void memmove_jpeg(volatile unsigned char *dest, vo/
+memmove_jpeg_int	mb1/utils.c	/^void memmove_jpeg_int(volatile unsigned int *dest,/
+mx_size	mb1/jpegtobmp.c	30
+my_size	mb1/jpegtobmp.c	30
+n_comp	mb1/jpegtobmp.c	32
+newcmp	mb3/jpeg.h	72
+n¿CpøCn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿CpøCn¿C3	output/Reference.pnm	119
+pack_4char_int	mb1/jpegtobmp.c	/^unsigned int pack_4char_int(unsigned char a,unsign/
+passed	mb1/jpegtobmp.c	58
+printf_frame_buffer	mb1/jpegtobmp.c	/^void printf_frame_buffer()$/
+process_MCU	mb1/parse.c	/^int process_MCU(FILE * fi)$/
+producer	mb1/main.c	10
+producer	mb2/main.c	9
+producer	mb3/main.c	9
+producer1	mb2/main.c	16
+producer_data	mb1/main.c	12
+producer_data1	mb2/main.c	18
+pøBpøCpøCpøCn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cq¿C7c#7c#q¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿Cn¿C	output/Reference.pnm	94
+readc	mb_shared/c-heap.h	11
+refill_bit_counter	mb1/5kk03.c	9
+reformat	mb1/utils.c	/^int reformat(unsigned long S, int good)$/
+reset_prediction	mb1/utils.c	/^void reset_prediction(void)$/
+rx_size	mb1/jpegtobmp.c	26
+ry_size	mb1/jpegtobmp.c	26
+second_quad	mb1/jpeg.h	/^#define second_quad(c)  ((c) & 15)$/
+second_quad	mb2/jpeg.h	/^#define second_quad(c)  ((c) & 15)$/
+second_quad	mb3/jpeg.h	/^#define second_quad(c)  ((c) & 15)$/
+show_FBlock	mb1/utils.c	/^void show_FBlock(FBlock * S)$/
+show_PBlock	mb1/utils.c	/^void show_PBlock(PBlock * S)$/
+skip_segment	mb1/parse.c	/^void skip_segment(FILE * fi)$/
+start_stack_check	mb_shared/5kk03-utils.c	/^void start_stack_check()$/
+stop_stack_check	mb_shared/5kk03-utils.c	/^void stop_stack_check()$/
+stuffers	mb1/jpegtobmp.c	56
+suicide	mb1/utils.c	/^void suicide(void)$/
+sunraster	mb1/utils.c	206
+surfer_jpg	mb1/surfer.jpg.h	4
+surfer_jpg	mb2/surfer.jpg.h	4
+surfer_jpg	mb3/surfer.jpg.h	4
+s≥ÏUùVüÏUùÔT†ÓVûÓVûÓVûÌUùÔ	output/Reference.pnm	200
+t	mb3/jpeg.h	75
+token_size	mb_shared/c-heap.h	13
+twA	output/Reference.pnm	196
+unlikely	mb_shared/5kk03-utils.c	/^#define unlikely(x)  __builtin_expect (!!(x), 0)$/
+unpack_block	mb1/huffman.c	/^void unpack_block(FILE * fi, FBlock * T, int selec/
+verbose	mb1/jpegtobmp.c	60
+vld_count	mb1/jpegtobmp.c	64
+window	mb1/parse.c	21
+write_bmp	mb1/jpegtobmp.c	/^void write_bmp(const char *const file2)$/
+write_bmp_to_ddr	mb1/jpegtobmp.c	/^void write_bmp_to_ddr()$/
+write_bmp_to_ddr_1	mb1/jpegtobmp.c	/^void write_bmp_to_ddr_1()$/
+write_param	mb_shared/c-heap_consumer.c	/^static inline void write_param(volatile void *dest/
+write_param	mb_shared/c-heap_producer.c	/^static inline void write_param(volatile void *dest/
+writec	mb_shared/c-heap.h	9
+x_size	mb1/jpegtobmp.c	24
+xÌUùVüÛ∑ˇˇˇ˛˛ˇ˛˛˛ˇ	output/Reference.pnm	185
+y	output/Reference.pnm	181
+y_size	mb1/jpegtobmp.c	24

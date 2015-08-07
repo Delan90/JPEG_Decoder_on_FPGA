@@ -1,0 +1,137 @@
+start Reference.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:12:55 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : 2.9208093500
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 13081
+Total amount of Dynamic memory usage by all cores in bytes 	 : 640
+Total amount of DDR usage by all cores in bytes 	 	 : 653119
+-------------------------------------------------------------------------
+end Reference.jpg
+start Restart_intervals.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:14:03 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : 3.0947381600
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 13073
+Total amount of Dynamic memory usage by all cores in bytes 	 : 640
+Total amount of DDR usage by all cores in bytes 	 	 : 664247
+-------------------------------------------------------------------------
+end Restart_intervals.jpg
+start Subsampling_122.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:15:06 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : 2.0093060000
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 13844
+Total amount of Dynamic memory usage by all cores in bytes 	 : 832
+Total amount of DDR usage by all cores in bytes 	 	 : 694322
+-------------------------------------------------------------------------
+end Subsampling_122.jpg
+start Black_white.jpg
+---------------------Image Comparison----------------------
+Binary files ../reference_output/Black_white.ppm and binary.pnm differ
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:16:20 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : 1.9786098900
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 12846
+Total amount of Dynamic memory usage by all cores in bytes 	 : 448
+Total amount of DDR usage by all cores in bytes 	 	 : 1364720
+-------------------------------------------------------------------------
+end Black_white.jpg
+start landscape.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:17:21 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : 2.6260965900
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 13074
+Total amount of Dynamic memory usage by all cores in bytes 	 : 640
+Total amount of DDR usage by all cores in bytes 	 	 : 1348374
+-------------------------------------------------------------------------
+end landscape.jpg
+start Low_frequency.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:18:12 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : 1.3436047500
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 13852
+Total amount of Dynamic memory usage by all cores in bytes 	 : 832
+Total amount of DDR usage by all cores in bytes 	 	 : 297232
+-------------------------------------------------------------------------
+end Low_frequency.jpg
+start Uround_MCU_blocks.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:18:42 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : .7484884900
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 13076
+Total amount of Dynamic memory usage by all cores in bytes 	 : 640
+Total amount of DDR usage by all cores in bytes 	 	 : 269833
+-------------------------------------------------------------------------
+end Uround_MCU_blocks.jpg
+start Critical_size.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:19:13 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : .4024666300
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 11289
+Total amount of Dynamic memory usage by all cores in bytes 	 : 832
+Total amount of DDR usage by all cores in bytes 	 	 : 132
+-------------------------------------------------------------------------
+end Critical_size.jpg
+start Random_image.jpg
+---------------------Image Comparison----------------------
+
+---------------------Measurement---------------------------
+Benchmarking parameters for code base in this directory          : /home/emb14/emb1405/temp
+Date and time of run                                             : Tue May 13 01:19:53 CEST 2014
+-------------------------------------------------------------------------
+Total execution time taken by the decoder in seconds             : .9307217800
+Total number of DMAs used by all the core		         : 4
+Total data memory and instruction memory (local memory) in bytes : 25084
+Total amount of Communication memory usage by all cores in bytes : 13842
+Total amount of Dynamic memory usage by all cores in bytes 	 : 832
+Total amount of DDR usage by all cores in bytes 	 	 : 359446
+-------------------------------------------------------------------------
+end Random_image.jpg
+---------------------End of script-------------------------

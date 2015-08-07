@@ -1,0 +1,10 @@
+./tags:304:hw_dma_send_addr	mb_shared/5kk03-utils.c	/^void hw_dma_send_addr(void *dst, void*src, int blo/
+./mb_shared/c-heap_consumer.c:34:		hw_dma_send_addr(
+./mb_shared/5kk03-utils.c:55:void hw_dma_send_addr(void *dst, void*src, int block_size, void *dma_base_addr)
+./mb_shared/5kk03-utils.h:9:void hw_dma_send_addr(void *dst, void*src, int block_size, void *dma_base_addr);
+./mb_shared/benchmark.h:13:{hw_dma_send_addr(_dest,_src,_size,_channel);\
+./mb_shared/c-heap_producer.c:35:		hw_dma_send_addr((void *)dest,
+./mb_shared/c-heap_producer.c:94:		hw_dma_send_addr((void *)write_pointer, (void *)d, token_size/4,(void *)producer_adm->dma_address);
+Binary file ./.build/mb2.elf matches
+Binary file ./.build/mb1.elf matches
+Binary file ./.build/mb3.elf matches

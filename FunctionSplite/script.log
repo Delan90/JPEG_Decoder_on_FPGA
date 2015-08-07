@@ -1,0 +1,945 @@
+start Reference.jpg
+rm: cannot remove `binary.pnm': No such file or directory
+rm -rf .build
+== Compiling monitor
+== Compiling core 1
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb1    -Imb_shared -L .platform/lib -DMB1 mb1/5kk03.c mb1/benchmarking.c mb1/color.c mb1/fast_int_idct.c mb1/huffman.c mb1/jpegtobmp.c mb1/main.c mb1/parse.c mb1/table_vld.c mb1/utils.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb1.elf -T .platform/mb1.ld -Imb1
+mb1/benchmarking.c: In function ‘main’:
+mb1/benchmarking.c:54: warning: implicit declaration of function ‘clear_frame_buffer’
+mb1/benchmarking.c:62: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:62: warning: comparison between pointer and integer
+mb1/benchmarking.c:64: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:64: warning: comparison between pointer and integer
+mb1/benchmarking.c:69: warning: implicit declaration of function ‘tile_main’
+mb1/color.c: In function ‘color_conversion’:
+mb1/color.c:83: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘JpegToBmp’:
+mb1/jpegtobmp.c:516: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘clear_frame_buffer’:
+mb1/jpegtobmp.c:679: warning: comparison between pointer and integer
+mb1/main.c: In function ‘tile_main’:
+mb1/main.c:59: warning: comparison between pointer and integer
+mb1/parse.c: In function ‘init_MCU’:
+mb1/parse.c:421: warning: comparison between pointer and integer
+== Compiling core 2
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb2    -Imb_shared -L .platform/lib -DMB2 mb2/benchmarking.c mb2/fast_int_idct.c mb2/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb2.elf -T .platform/mb2.ld -Imb2
+mb2/benchmarking.c: In function ‘main’:
+mb2/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb2/benchmarking.c:54: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb2/benchmarking.c:54: warning: comparison between pointer and integer
+mb2/main.c: In function ‘tile_main’:
+mb2/main.c:60: warning: comparison between pointer and integer
+mb2/main.c:90: warning: comparison between pointer and integer
+== Compiling core 3
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb3   -Imb_shared -L .platform/lib -DMB3 mb3/benchmarking.c mb3/color.c mb3/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb3.elf -T .platform/mb3.ld -Imb3
+mb3/benchmarking.c: In function ‘main’:
+mb3/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb3/benchmarking.c:53: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb3/benchmarking.c:53: warning: comparison between pointer and integer
+mb3/color.c: In function ‘color_conversion’:
+mb3/color.c:57: warning: comparison between pointer and integer
+mb3/color.c:107: warning: comparison between pointer and integer
+== Building file2bin
+== Creating memory image
+File size: 327753, padding: 3, total: 327756
+ssh co8 mkdir "/tmp/.5kk03-tNx7u9a6Rl00yaMW"
+scp .build/monitor.elf .build/mb1.elf .build/mb2.elf .build/mb3.elf .build/data.bin co8:"/tmp/.5kk03-tNx7u9a6Rl00yaMW"
+ssh co8 "/bin/bash -c \"source /opt/Xilinx/13.3/settings64.sh; cd /tmp/.5kk03-tNx7u9a6Rl00yaMW; data2mem -bm /usr/share/5kk03/2014//system_bd.bmm -bt /usr/share/5kk03/2014//system.bit -bd mb1.elf tag mb1   -bd mb2.elf tag mb2   -bd mb3.elf tag mb3   -bd monitor.elf tag monitor -o b user.bit\""
+. /local_home/.apps/xilinx-13-3/ISE_DS/EDK/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/EDK
+. /local_home/.apps/xilinx-13-3/ISE_DS/ISE/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/ISE
+. /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead
+. /local_home/.apps/xilinx-13-3/ISE_DS/common/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/common
+. /local_home/.apps/xilinx-13-3/SDK/SDK/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/SDK
+. /local_home/.apps/xilinx-13-3/SDK/common/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/common
+ssh co8 ml-doimpact  -f "/tmp/.5kk03-tNx7u9a6Rl00yaMW/user.bit" -b 921600 -t 60 -o /tmp/.5kk03-tNx7u9a6Rl00yaMW/ttylog -i /tmp/.5kk03-tNx7u9a6Rl00yaMW/data.bin  | 5kk03_parser 
+/usr/bin/ml-doimpact: line 353: 22997 Terminated              tail -n +1 -f "$FTT"
+FILE: /tmp/.5kk03-tNx7u9a6Rl00yaMW/user.bit is [31m[0m old
+Note:
+Jobs in [1;31mred[0m are scheduled using bitspooler
+Jobs in [1;035mmagenta[0m are scheduled directly
+
+Waiting |Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  [1;31musb21[0m:emb1405:[1;034m0min[0m /
+Job accepted !
+Running impact
+Looking for impact output TAIL=22457 TEMP=22455
+[1;034mBoundary-scan chain validated successfully.[0m
+2: Device Temperature: [1;31m42.01[0m C, Min. Reading:   35.61 C, Max.Reading:   42.50 C
+2: VCCINT Supply: [1;31m1.008[0m V, Min. Reading:   1.005 V, Max.Reading:   1.011 V
+2: VCCAUX Supply: [1;31m2.499[0m V, Min. Reading:   2.490 V, Max.Reading:   2.502 V
+[1;034m'2': Programming device...[0m
+[1;034m'2': Programmed successfully.[0m
+
+Board programmed !
+[1;034mGrabbing tty:
+Starting monitor
+xil_printf: Hello World!
+Received: 1
+Have to receive 327756 bytes
+327680 remaining
+311296 remaining
+294912 remaining
+278528 remaining
+262144 remaining
+245760 remaining
+229376 remaining
+212992 remaining
+196608 remaining
+180224 remaining
+163840 remaining
+147456 remaining
+131072 remaining
+114688 remaining
+98304 remaining
+81920 remaining
+65536 remaining
+49152 remaining
+32768 remaining
+16384 remaining
+0 remaining
+Start DMA Mode
+97: mb1_fsl: 0x0
+104: mb2_fsl: 0x0
+111: mb3_fsl: 0x0
+121: mb1_fsl: 0xFFAA
+126: mb3_fsl: 0xFFAA
+132: mb3_fsl: 0xFFAA
+Tiles synced.
+MB2 timestamp: 465813614  value: 2 (00000002)
+MB3 timestamp: 466796705  value: 3 (00000003)
+MB2 timestamp: 520391709  value: 2 (00000002)
+MB3 timestamp: 520391960  value: 3 (00000003)
+MB2 Error: 0BBB timestamp: 560582621 value: 00000001
+MB3 Error: 002E timestamp: 560610753 value: C2CCCCCC
+MB3 Error: 0061 timestamp: 560611036 value: C3CCCCCC
+MB1 Error: 0DDE timestamp: 1330615115 value: 2DE5CDEF
+MB2 Error: 0DDE timestamp: 1330632994 value: 304B4C11
+MB3 Error: 0DDE timestamp: 1330656217 value: 304BA5CD
+MB1 Error: 00B1 timestamp: 1330633546 value: 304B4FFB
+MB2 Error: 00B2 timestamp: 1330633445 value: 00000001
+MB3 Error: 002F timestamp: 1330656405 value: C1CCCCCC
+MB1 Error: 00B2 timestamp: 1330633724 value: 00000002
+MB3 Error: 00B2 timestamp: 1330656860 value: 00000001
+MB2 Error: 00B3 timestamp: 1332132813 value: 00012000
+MB3 Error: 00B3 timestamp: 1332156228 value: 000002DC
+MB1 Error: 00B3 timestamp: 1332133093 value: 0000181A
+MB2 Error: 00B4 timestamp: 1332132993 value: 00000000
+MB3 Error: 00B4 timestamp: 1332156408 value: 00000000
+MB1 Error: 00B4 timestamp: 1332133274 value: 00000280
+Core 2 done
+Core 3 done
+MB1 Error: 00B5 timestamp: 1377047737 value: 00000000
+Core 1 done
+
+Receiving file with size: 620344
+Wrote to 'binary.pnm'
+
+FINISHED
+[0m
+[0m
+scp co8:/tmp/.5kk03-tNx7u9a6Rl00yaMW/ttylog response.txt
+ssh co8 "bash -c \"rm -rf /tmp/.5kk03-tNx7u9a6Rl00yaMW\""
+bmptoppm: Windows BMP, 1024x768x24
+bmptoppm: WRITING PPM IMAGE
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start Restart_intervals.jpg
+rm -rf .build
+== Compiling monitor
+== Compiling core 1
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb1    -Imb_shared -L .platform/lib -DMB1 mb1/5kk03.c mb1/benchmarking.c mb1/color.c mb1/fast_int_idct.c mb1/huffman.c mb1/jpegtobmp.c mb1/main.c mb1/parse.c mb1/table_vld.c mb1/utils.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb1.elf -T .platform/mb1.ld -Imb1
+mb1/benchmarking.c: In function ‘main’:
+mb1/benchmarking.c:54: warning: implicit declaration of function ‘clear_frame_buffer’
+mb1/benchmarking.c:62: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:62: warning: comparison between pointer and integer
+mb1/benchmarking.c:64: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:64: warning: comparison between pointer and integer
+mb1/benchmarking.c:69: warning: implicit declaration of function ‘tile_main’
+mb1/color.c: In function ‘color_conversion’:
+mb1/color.c:83: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘JpegToBmp’:
+mb1/jpegtobmp.c:516: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘clear_frame_buffer’:
+mb1/jpegtobmp.c:679: warning: comparison between pointer and integer
+mb1/main.c: In function ‘tile_main’:
+mb1/main.c:59: warning: comparison between pointer and integer
+mb1/parse.c: In function ‘init_MCU’:
+mb1/parse.c:421: warning: comparison between pointer and integer
+== Compiling core 2
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb2    -Imb_shared -L .platform/lib -DMB2 mb2/benchmarking.c mb2/fast_int_idct.c mb2/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb2.elf -T .platform/mb2.ld -Imb2
+mb2/benchmarking.c: In function ‘main’:
+mb2/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb2/benchmarking.c:54: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb2/benchmarking.c:54: warning: comparison between pointer and integer
+mb2/main.c: In function ‘tile_main’:
+mb2/main.c:60: warning: comparison between pointer and integer
+mb2/main.c:90: warning: comparison between pointer and integer
+== Compiling core 3
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb3   -Imb_shared -L .platform/lib -DMB3 mb3/benchmarking.c mb3/color.c mb3/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb3.elf -T .platform/mb3.ld -Imb3
+mb3/benchmarking.c: In function ‘main’:
+mb3/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb3/benchmarking.c:53: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb3/benchmarking.c:53: warning: comparison between pointer and integer
+mb3/color.c: In function ‘color_conversion’:
+mb3/color.c:57: warning: comparison between pointer and integer
+mb3/color.c:107: warning: comparison between pointer and integer
+== Building file2bin
+== Creating memory image
+File size: 439036, padding: 0, total: 439036
+ssh co8 mkdir "/tmp/.5kk03-m7FJ3LNJv0UmdzQb"
+scp .build/monitor.elf .build/mb1.elf .build/mb2.elf .build/mb3.elf .build/data.bin co8:"/tmp/.5kk03-m7FJ3LNJv0UmdzQb"
+ssh co8 "/bin/bash -c \"source /opt/Xilinx/13.3/settings64.sh; cd /tmp/.5kk03-m7FJ3LNJv0UmdzQb; data2mem -bm /usr/share/5kk03/2014//system_bd.bmm -bt /usr/share/5kk03/2014//system.bit -bd mb1.elf tag mb1   -bd mb2.elf tag mb2   -bd mb3.elf tag mb3   -bd monitor.elf tag monitor -o b user.bit\""
+. /local_home/.apps/xilinx-13-3/ISE_DS/EDK/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/EDK
+. /local_home/.apps/xilinx-13-3/ISE_DS/ISE/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/ISE
+. /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead
+. /local_home/.apps/xilinx-13-3/ISE_DS/common/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/common
+. /local_home/.apps/xilinx-13-3/SDK/SDK/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/SDK
+. /local_home/.apps/xilinx-13-3/SDK/common/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/common
+ssh co8 ml-doimpact  -f "/tmp/.5kk03-m7FJ3LNJv0UmdzQb/user.bit" -b 921600 -t 60 -o /tmp/.5kk03-m7FJ3LNJv0UmdzQb/ttylog -i /tmp/.5kk03-m7FJ3LNJv0UmdzQb/data.bin  | 5kk03_parser 
+/usr/bin/ml-doimpact: line 353: 26376 Terminated              tail -n +1 -f "$FTT"
+FILE: /tmp/.5kk03-m7FJ3LNJv0UmdzQb/user.bit is [31m[0m old
+Note:
+Jobs in [1;31mred[0m are scheduled using bitspooler
+Jobs in [1;035mmagenta[0m are scheduled directly
+
+Waiting |Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  [1;31musb21[0m:emb1405:[1;034m0min[0m -
+Job accepted !
+Running impact
+Looking for impact output TAIL=25741 TEMP=25739
+[1;034mBoundary-scan chain validated successfully.[0m
+2: Device Temperature: [1;31m41.02[0m C, Min. Reading:   35.12 C, Max.Reading:   41.52 C
+2: VCCINT Supply: [1;31m1.005[0m V, Min. Reading:   1.005 V, Max.Reading:   1.011 V
+2: VCCAUX Supply: [1;31m2.496[0m V, Min. Reading:   2.490 V, Max.Reading:   2.502 V
+[1;034m'2': Programming device...[0m
+[1;034m'2': Programmed successfully.[0m
+
+Board programmed !
+[1;034mGrabbing tty:
+Starting monitor
+xil_printf: Hello World!
+Received: 1
+Have to receive 439036 bytes
+425984 remaining
+409600 remaining
+393216 remaining
+376832 remaining
+360448 remaining
+344064 remaining
+327680 remaining
+311296 remaining
+294912 remaining
+278528 remaining
+262144 remaining
+245760 remaining
+229376 remaining
+212992 remaining
+196608 remaining
+180224 remaining
+163840 remaining
+147456 remaining
+131072 remaining
+114688 remaining
+98304 remaining
+81920 remaining
+65536 remaining
+49152 remaining
+32768 remaining
+16384 remaining
+0 remaining
+Start DMA Mode
+97: mb1_fsl: 0x0
+104: mb2_fsl: 0x0
+111: mb3_fsl: 0x0
+121: mb1_fsl: 0xFFAA
+126: mb3_fsl: 0xFFAA
+132: mb3_fsl: 0xFFAA
+Tiles synced.
+MB2 timestamp: 622911160  value: 2 (00000002)
+MB3 timestamp: 623894251  value: 3 (00000003)
+MB2 timestamp: 677489255  value: 2 (00000002)
+MB3 timestamp: 677489496  value: 3 (00000003)
+MB2 Error: 0BBB timestamp: 717680167 value: 00000001
+MB3 Error: 002E timestamp: 717707100 value: C2CCCCCC
+MB3 Error: 0061 timestamp: 717707383 value: C3CCCCCC
+MB1 Error: 0DDE timestamp: 1512125748 value: 2F5A518E
+MB2 Error: 0DDE timestamp: 1512143597 value: 31BFCF92
+MB3 Error: 0DDE timestamp: 1512166836 value: 31C02968
+MB1 Error: 00B1 timestamp: 1512144143 value: 31BFD376
+MB2 Error: 00B2 timestamp: 1512144048 value: 00000001
+MB3 Error: 002F timestamp: 1512167024 value: C1CCCCCC
+MB1 Error: 00B2 timestamp: 1512144321 value: 00000002
+MB3 Error: 00B2 timestamp: 1512167479 value: 00000001
+MB2 Error: 00B3 timestamp: 1513643416 value: 00012000
+MB3 Error: 00B3 timestamp: 1513666847 value: 000002DC
+MB1 Error: 00B3 timestamp: 1513643690 value: 00001821
+MB2 Error: 00B4 timestamp: 1513643596 value: 00000000
+MB3 Error: 00B4 timestamp: 1513667027 value: 00000000
+MB1 Error: 00B4 timestamp: 1513643871 value: 00000280
+Core 2 done
+Core 3 done
+MB1 Error: 00B5 timestamp: 1558558334 value: 00000000
+Core 1 done
+
+Receiving file with size: 620344
+Wrote to 'binary.pnm'
+
+FINISHED
+[0m
+[0m
+scp co8:/tmp/.5kk03-m7FJ3LNJv0UmdzQb/ttylog response.txt
+ssh co8 "bash -c \"rm -rf /tmp/.5kk03-m7FJ3LNJv0UmdzQb\""
+bmptoppm: Windows BMP, 1024x768x24
+bmptoppm: WRITING PPM IMAGE
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start Subsampling_122.jpg
+rm -rf .build
+== Compiling monitor
+== Compiling core 1
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb1    -Imb_shared -L .platform/lib -DMB1 mb1/5kk03.c mb1/benchmarking.c mb1/color.c mb1/fast_int_idct.c mb1/huffman.c mb1/jpegtobmp.c mb1/main.c mb1/parse.c mb1/table_vld.c mb1/utils.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb1.elf -T .platform/mb1.ld -Imb1
+mb1/benchmarking.c: In function ‘main’:
+mb1/benchmarking.c:54: warning: implicit declaration of function ‘clear_frame_buffer’
+mb1/benchmarking.c:62: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:62: warning: comparison between pointer and integer
+mb1/benchmarking.c:64: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:64: warning: comparison between pointer and integer
+mb1/benchmarking.c:69: warning: implicit declaration of function ‘tile_main’
+mb1/color.c: In function ‘color_conversion’:
+mb1/color.c:83: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘JpegToBmp’:
+mb1/jpegtobmp.c:516: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘clear_frame_buffer’:
+mb1/jpegtobmp.c:679: warning: comparison between pointer and integer
+mb1/main.c: In function ‘tile_main’:
+mb1/main.c:59: warning: comparison between pointer and integer
+mb1/parse.c: In function ‘init_MCU’:
+mb1/parse.c:421: warning: comparison between pointer and integer
+== Compiling core 2
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb2    -Imb_shared -L .platform/lib -DMB2 mb2/benchmarking.c mb2/fast_int_idct.c mb2/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb2.elf -T .platform/mb2.ld -Imb2
+mb2/benchmarking.c: In function ‘main’:
+mb2/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb2/benchmarking.c:54: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb2/benchmarking.c:54: warning: comparison between pointer and integer
+mb2/main.c: In function ‘tile_main’:
+mb2/main.c:60: warning: comparison between pointer and integer
+mb2/main.c:90: warning: comparison between pointer and integer
+== Compiling core 3
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb3   -Imb_shared -L .platform/lib -DMB3 mb3/benchmarking.c mb3/color.c mb3/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb3.elf -T .platform/mb3.ld -Imb3
+mb3/benchmarking.c: In function ‘main’:
+mb3/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb3/benchmarking.c:53: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb3/benchmarking.c:53: warning: comparison between pointer and integer
+mb3/color.c: In function ‘color_conversion’:
+mb3/color.c:57: warning: comparison between pointer and integer
+mb3/color.c:107: warning: comparison between pointer and integer
+== Building file2bin
+== Creating memory image
+File size: 257901, padding: 3, total: 257904
+ssh co8 mkdir "/tmp/.5kk03-Fxa05GMoMZfNulfL"
+scp .build/monitor.elf .build/mb1.elf .build/mb2.elf .build/mb3.elf .build/data.bin co8:"/tmp/.5kk03-Fxa05GMoMZfNulfL"
+ssh co8 "/bin/bash -c \"source /opt/Xilinx/13.3/settings64.sh; cd /tmp/.5kk03-Fxa05GMoMZfNulfL; data2mem -bm /usr/share/5kk03/2014//system_bd.bmm -bt /usr/share/5kk03/2014//system.bit -bd mb1.elf tag mb1   -bd mb2.elf tag mb2   -bd mb3.elf tag mb3   -bd monitor.elf tag monitor -o b user.bit\""
+. /local_home/.apps/xilinx-13-3/ISE_DS/EDK/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/EDK
+. /local_home/.apps/xilinx-13-3/ISE_DS/ISE/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/ISE
+. /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead
+. /local_home/.apps/xilinx-13-3/ISE_DS/common/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/common
+. /local_home/.apps/xilinx-13-3/SDK/SDK/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/SDK
+. /local_home/.apps/xilinx-13-3/SDK/common/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/common
+ssh co8 ml-doimpact  -f "/tmp/.5kk03-Fxa05GMoMZfNulfL/user.bit" -b 921600 -t 60 -o /tmp/.5kk03-Fxa05GMoMZfNulfL/ttylog -i /tmp/.5kk03-Fxa05GMoMZfNulfL/data.bin  | 5kk03_parser 
+/usr/bin/ml-doimpact: line 353: 29644 Terminated              tail -n +1 -f "$FTT"
+FILE: /tmp/.5kk03-Fxa05GMoMZfNulfL/user.bit is [31m[0m old
+Note:
+Jobs in [1;31mred[0m are scheduled using bitspooler
+Jobs in [1;035mmagenta[0m are scheduled directly
+
+Waiting |Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  [1;31musb21[0m:emb1405:[1;034m0min[0m \
+Job accepted !
+Running impact
+Looking for impact output TAIL=29011 TEMP=29009
+[1;034mBoundary-scan chain validated successfully.[0m
+2: Device Temperature: [1;31m42.01[0m C, Min. Reading:   35.61 C, Max.Reading:   42.50 C
+2: VCCINT Supply: [1;31m1.008[0m V, Min. Reading:   1.005 V, Max.Reading:   1.011 V
+2: VCCAUX Supply: [1;31m2.496[0m V, Min. Reading:   2.490 V, Max.Reading:   2.502 V
+[1;034m'2': Programming device...[0m
+[1;034m'2': Programmed successfully.[0m
+
+Board programmed !
+[1;034mGrabbing tty:
+Starting monitor
+xil_printf: Hello World!
+Received: 1
+Have to receive 257904 bytes
+245760 remaining
+229376 remaining
+212992 remaining
+196608 remaining
+180224 remaining
+163840 remaining
+147456 remaining
+131072 remaining
+114688 remaining
+98304 remaining
+81920 remaining
+65536 remaining
+49152 remaining
+32768 remaining
+16384 remaining
+0 remaining
+Start DMA Mode
+97: mb1_fsl: 0x0
+104: mb2_fsl: 0x0
+111: mb3_fsl: 0x0
+121: mb1_fsl: 0xFFAA
+126: mb3_fsl: 0xFFAA
+132: mb3_fsl: 0xFFAA
+Tiles synced.
+MB2 timestamp: 366938227  value: 2 (00000002)
+MB3 timestamp: 367921318  value: 3 (00000003)
+MB2 timestamp: 421516322  value: 2 (00000002)
+MB3 timestamp: 421516583  value: 3 (00000003)
+MB2 Error: 0BBB timestamp: 461707254 value: 00000001
+MB3 Error: 002E timestamp: 461734837 value: C2CCCCCC
+MB3 Error: 0061 timestamp: 461735120 value: C3CCCCCC
+MB1 Error: 0DDE timestamp: 892392798 value: 19ABC7ED
+MB2 Error: 0DDE timestamp: 892410579 value: 1C1145BD
+MB1 Error: 00B1 timestamp: 892411103 value: 1C11498B
+MB2 Error: 00B2 timestamp: 892411030 value: 00000001
+MB3 Error: 0DDE timestamp: 892496821 value: 1C12959A
+MB1 Error: 00B2 timestamp: 892411281 value: 00000002
+MB3 Error: 002F timestamp: 892497009 value: C1CCCCCC
+MB3 Error: 00B2 timestamp: 892497464 value: 00000001
+MB2 Error: 00B3 timestamp: 893910398 value: 00012000
+MB1 Error: 00B3 timestamp: 893910650 value: 0000181D
+MB2 Error: 00B4 timestamp: 893910578 value: 00000000
+MB3 Error: 00B3 timestamp: 893996832 value: 000005DC
+MB1 Error: 00B4 timestamp: 893910831 value: 00000340
+Core 2 done
+MB3 Error: 00B4 timestamp: 893997012 value: 00000000
+Core 3 done
+MB1 Error: 00B5 timestamp: 938824046 value: 00000000
+Core 1 done
+
+Receiving file with size: 668532
+Wrote to 'binary.pnm'
+
+FINISHED
+[0m
+[0m
+scp co8:/tmp/.5kk03-Fxa05GMoMZfNulfL/ttylog response.txt
+ssh co8 "bash -c \"rm -rf /tmp/.5kk03-Fxa05GMoMZfNulfL\""
+bmptoppm: Windows BMP, 1024x768x24
+bmptoppm: WRITING PPM IMAGE
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start Black_white.jpg
+bmptoppm: Windows BMP, 1024x768x24
+bmptoppm: WRITING PPM IMAGE
+diff: binary.pnm: No such file or directory
+cp: cannot stat `binary.pnm': No such file or directory
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start landscape.jpg
+rm: cannot remove `binary.pnm': No such file or directory
+rm -rf .build
+== Compiling monitor
+== Compiling core 1
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb1    -Imb_shared -L .platform/lib -DMB1 mb1/5kk03.c mb1/benchmarking.c mb1/color.c mb1/fast_int_idct.c mb1/huffman.c mb1/jpegtobmp.c mb1/main.c mb1/parse.c mb1/table_vld.c mb1/utils.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb1.elf -T .platform/mb1.ld -Imb1
+mb1/benchmarking.c: In function ‘main’:
+mb1/benchmarking.c:54: warning: implicit declaration of function ‘clear_frame_buffer’
+mb1/benchmarking.c:62: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:62: warning: comparison between pointer and integer
+mb1/benchmarking.c:64: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:64: warning: comparison between pointer and integer
+mb1/benchmarking.c:69: warning: implicit declaration of function ‘tile_main’
+mb1/color.c: In function ‘color_conversion’:
+mb1/color.c:83: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘JpegToBmp’:
+mb1/jpegtobmp.c:516: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘clear_frame_buffer’:
+mb1/jpegtobmp.c:679: warning: comparison between pointer and integer
+mb1/main.c: In function ‘tile_main’:
+mb1/main.c:59: warning: comparison between pointer and integer
+mb1/parse.c: In function ‘init_MCU’:
+mb1/parse.c:421: warning: comparison between pointer and integer
+== Compiling core 2
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb2    -Imb_shared -L .platform/lib -DMB2 mb2/benchmarking.c mb2/fast_int_idct.c mb2/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb2.elf -T .platform/mb2.ld -Imb2
+mb2/benchmarking.c: In function ‘main’:
+mb2/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb2/benchmarking.c:54: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb2/benchmarking.c:54: warning: comparison between pointer and integer
+mb2/main.c: In function ‘tile_main’:
+mb2/main.c:60: warning: comparison between pointer and integer
+mb2/main.c:90: warning: comparison between pointer and integer
+== Compiling core 3
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb3   -Imb_shared -L .platform/lib -DMB3 mb3/benchmarking.c mb3/color.c mb3/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb3.elf -T .platform/mb3.ld -Imb3
+mb3/benchmarking.c: In function ‘main’:
+mb3/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb3/benchmarking.c:53: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb3/benchmarking.c:53: warning: comparison between pointer and integer
+mb3/color.c: In function ‘color_conversion’:
+mb3/color.c:57: warning: comparison between pointer and integer
+mb3/color.c:107: warning: comparison between pointer and integer
+== Building file2bin
+== Creating memory image
+File size: 241584, padding: 0, total: 241584
+ssh co8 mkdir "/tmp/.5kk03-p1eJcA3Xvu7eF8GX"
+scp .build/monitor.elf .build/mb1.elf .build/mb2.elf .build/mb3.elf .build/data.bin co8:"/tmp/.5kk03-p1eJcA3Xvu7eF8GX"
+ssh co8 "/bin/bash -c \"source /opt/Xilinx/13.3/settings64.sh; cd /tmp/.5kk03-p1eJcA3Xvu7eF8GX; data2mem -bm /usr/share/5kk03/2014//system_bd.bmm -bt /usr/share/5kk03/2014//system.bit -bd mb1.elf tag mb1   -bd mb2.elf tag mb2   -bd mb3.elf tag mb3   -bd monitor.elf tag monitor -o b user.bit\""
+. /local_home/.apps/xilinx-13-3/ISE_DS/EDK/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/EDK
+. /local_home/.apps/xilinx-13-3/ISE_DS/ISE/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/ISE
+. /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead
+. /local_home/.apps/xilinx-13-3/ISE_DS/common/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/common
+. /local_home/.apps/xilinx-13-3/SDK/SDK/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/SDK
+. /local_home/.apps/xilinx-13-3/SDK/common/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/common
+ssh co8 ml-doimpact  -f "/tmp/.5kk03-p1eJcA3Xvu7eF8GX/user.bit" -b 921600 -t 60 -o /tmp/.5kk03-p1eJcA3Xvu7eF8GX/ttylog -i /tmp/.5kk03-p1eJcA3Xvu7eF8GX/data.bin  | 5kk03_parser 
+/usr/bin/ml-doimpact: line 353:   465 Terminated              tail -n +1 -f "$FTT"
+FILE: /tmp/.5kk03-p1eJcA3Xvu7eF8GX/user.bit is [31m[0m old
+Note:
+Jobs in [1;31mred[0m are scheduled using bitspooler
+Jobs in [1;035mmagenta[0m are scheduled directly
+
+Waiting |Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  [1;31musb21[0m:emb1405:[1;034m0min[0m /
+Job accepted !
+Running impact
+Looking for impact output TAIL=32315 TEMP=32313
+[1;034mBoundary-scan chain validated successfully.[0m
+2: Device Temperature: [1;31m41.52[0m C, Min. Reading:   35.61 C, Max.Reading:   42.01 C
+2: VCCINT Supply: [1;31m1.008[0m V, Min. Reading:   1.005 V, Max.Reading:   1.011 V
+2: VCCAUX Supply: [1;31m2.496[0m V, Min. Reading:   2.490 V, Max.Reading:   2.502 V
+[1;034m'2': Programming device...[0m
+[1;034m'2': Programmed successfully.[0m
+
+Board programmed !
+[1;034mGrabbing tty:
+Starting monitor
+xil_printf: Hello World!
+Received: 1
+Have to receive 241584 bytes
+229376 remaining
+212992 remaining
+196608 remaining
+180224 remaining
+163840 remaining
+147456 remaining
+131072 remaining
+114688 remaining
+98304 remaining
+81920 remaining
+65536 remaining
+49152 remaining
+32768 remaining
+16384 remaining
+0 remaining
+Start DMA Mode
+97: mb1_fsl: 0x0
+104: mb2_fsl: 0x0
+111: mb3_fsl: 0x0
+121: mb1_fsl: 0xFFAA
+126: mb3_fsl: 0xFFAA
+132: mb3_fsl: 0xFFAA
+Tiles synced.
+MB2 timestamp: 343951906  value: 2 (00000002)
+MB3 timestamp: 344934997  value: 3 (00000003)
+MB2 timestamp: 398530011  value: 2 (00000002)
+MB3 timestamp: 398530252  value: 3 (00000003)
+MB2 Error: 0BBB timestamp: 438720963 value: 00000001
+MB3 Error: 002E timestamp: 438747876 value: C2CCCCCC
+MB3 Error: 0061 timestamp: 438748159 value: C3CCCCCC
+MB1 Error: 0DDE timestamp: 1165203682 value: 2B4D49B2
+MB2 Error: 0DDE timestamp: 1165221533 value: 2DB2C7CE
+MB3 Error: 0DDE timestamp: 1165244771 value: 2DB321A3
+MB1 Error: 00B1 timestamp: 1165222077 value: 2DB2CBBA
+MB2 Error: 00B2 timestamp: 1165221984 value: 00000001
+MB3 Error: 002F timestamp: 1165244959 value: C1CCCCCC
+MB1 Error: 00B2 timestamp: 1165222255 value: 00000002
+MB3 Error: 00B2 timestamp: 1165245414 value: 00000001
+MB2 Error: 00B3 timestamp: 1166721352 value: 00011FFE
+MB3 Error: 00B3 timestamp: 1166744782 value: 000002DC
+MB1 Error: 00B3 timestamp: 1166721624 value: 00001818
+MB2 Error: 00B4 timestamp: 1166721532 value: 00000000
+MB3 Error: 00B4 timestamp: 1166744962 value: 00000000
+MB1 Error: 00B4 timestamp: 1166721805 value: 00000280
+Core 2 done
+Core 3 done
+MB1 Error: 00B5 timestamp: 1211638268 value: 00000000
+Core 1 done
+
+Receiving file with size: 1324216
+Wrote to 'binary.pnm'
+
+FINISHED
+[0m
+[0m
+scp co8:/tmp/.5kk03-p1eJcA3Xvu7eF8GX/ttylog response.txt
+ssh co8 "bash -c \"rm -rf /tmp/.5kk03-p1eJcA3Xvu7eF8GX\""
+bmptoppm: Windows BMP, 1024x768x24
+bmptoppm: WRITING PPM IMAGE
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start Low_frequency.jpg
+rm -rf .build
+== Compiling monitor
+== Compiling core 1
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb1    -Imb_shared -L .platform/lib -DMB1 mb1/5kk03.c mb1/benchmarking.c mb1/color.c mb1/fast_int_idct.c mb1/huffman.c mb1/jpegtobmp.c mb1/main.c mb1/parse.c mb1/table_vld.c mb1/utils.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb1.elf -T .platform/mb1.ld -Imb1
+mb1/benchmarking.c: In function ‘main’:
+mb1/benchmarking.c:54: warning: implicit declaration of function ‘clear_frame_buffer’
+mb1/benchmarking.c:62: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:62: warning: comparison between pointer and integer
+mb1/benchmarking.c:64: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:64: warning: comparison between pointer and integer
+mb1/benchmarking.c:69: warning: implicit declaration of function ‘tile_main’
+mb1/color.c: In function ‘color_conversion’:
+mb1/color.c:83: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘JpegToBmp’:
+mb1/jpegtobmp.c:516: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘clear_frame_buffer’:
+mb1/jpegtobmp.c:679: warning: comparison between pointer and integer
+mb1/main.c: In function ‘tile_main’:
+mb1/main.c:59: warning: comparison between pointer and integer
+mb1/parse.c: In function ‘init_MCU’:
+mb1/parse.c:421: warning: comparison between pointer and integer
+== Compiling core 2
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb2    -Imb_shared -L .platform/lib -DMB2 mb2/benchmarking.c mb2/fast_int_idct.c mb2/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb2.elf -T .platform/mb2.ld -Imb2
+mb2/benchmarking.c: In function ‘main’:
+mb2/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb2/benchmarking.c:54: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb2/benchmarking.c:54: warning: comparison between pointer and integer
+mb2/main.c: In function ‘tile_main’:
+mb2/main.c:60: warning: comparison between pointer and integer
+mb2/main.c:90: warning: comparison between pointer and integer
+== Compiling core 3
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb3   -Imb_shared -L .platform/lib -DMB3 mb3/benchmarking.c mb3/color.c mb3/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb3.elf -T .platform/mb3.ld -Imb3
+mb3/benchmarking.c: In function ‘main’:
+mb3/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb3/benchmarking.c:53: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb3/benchmarking.c:53: warning: comparison between pointer and integer
+mb3/color.c: In function ‘color_conversion’:
+mb3/color.c:57: warning: comparison between pointer and integer
+mb3/color.c:107: warning: comparison between pointer and integer
+== Building file2bin
+== Creating memory image
+File size: 12919, padding: 1, total: 12920
+ssh co8 mkdir "/tmp/.5kk03-ljR_xiwOg5QZPDyF"
+scp .build/monitor.elf .build/mb1.elf .build/mb2.elf .build/mb3.elf .build/data.bin co8:"/tmp/.5kk03-ljR_xiwOg5QZPDyF"
+ssh co8 "/bin/bash -c \"source /opt/Xilinx/13.3/settings64.sh; cd /tmp/.5kk03-ljR_xiwOg5QZPDyF; data2mem -bm /usr/share/5kk03/2014//system_bd.bmm -bt /usr/share/5kk03/2014//system.bit -bd mb1.elf tag mb1   -bd mb2.elf tag mb2   -bd mb3.elf tag mb3   -bd monitor.elf tag monitor -o b user.bit\""
+. /local_home/.apps/xilinx-13-3/ISE_DS/EDK/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/EDK
+. /local_home/.apps/xilinx-13-3/ISE_DS/ISE/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/ISE
+. /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead
+. /local_home/.apps/xilinx-13-3/ISE_DS/common/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/common
+. /local_home/.apps/xilinx-13-3/SDK/SDK/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/SDK
+. /local_home/.apps/xilinx-13-3/SDK/common/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/common
+ssh co8 ml-doimpact  -f "/tmp/.5kk03-ljR_xiwOg5QZPDyF/user.bit" -b 921600 -t 60 -o /tmp/.5kk03-ljR_xiwOg5QZPDyF/ttylog -i /tmp/.5kk03-ljR_xiwOg5QZPDyF/data.bin  | 5kk03_parser 
+/usr/bin/ml-doimpact: line 353:  3884 Terminated              tail -n +1 -f "$FTT"
+FILE: /tmp/.5kk03-ljR_xiwOg5QZPDyF/user.bit is [31m[0m old
+Note:
+Jobs in [1;31mred[0m are scheduled using bitspooler
+Jobs in [1;035mmagenta[0m are scheduled directly
+
+Waiting |Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \
+Job accepted !
+Running impact
+Looking for impact output TAIL=3250 TEMP=3248
+[1;034mBoundary-scan chain validated successfully.[0m
+2: Device Temperature: [1;31m42.50[0m C, Min. Reading:   36.10 C, Max.Reading:   42.50 C
+2: VCCINT Supply: [1;31m1.008[0m V, Min. Reading:   1.005 V, Max.Reading:   1.011 V
+2: VCCAUX Supply: [1;31m2.499[0m V, Min. Reading:   2.493 V, Max.Reading:   2.502 V
+[1;034m'2': Programming device...[0m
+[1;034m'2': Programmed successfully.[0m
+
+Board programmed !
+[1;034mGrabbing tty:
+Starting monitor
+xil_printf: Hello World!
+Received: 1
+Have to receive 12920 bytes
+0 remaining
+Start DMA Mode
+97: mb1_fsl: 0x0
+104: mb2_fsl: 0x0
+111: mb3_fsl: 0x0
+121: mb1_fsl: 0xFFAA
+126: mb3_fsl: 0xFFAA
+132: mb3_fsl: 0xFFAA
+Tiles synced.
+MB2 timestamp: 20940922  value: 2 (00000002)
+MB3 timestamp: 21924013  value: 3 (00000003)
+MB2 timestamp: 75519027  value: 2 (00000002)
+MB3 timestamp: 75519268  value: 3 (00000003)
+MB2 Error: 0BBB timestamp: 115709979 value: 00000001
+MB3 Error: 002E timestamp: 115737542 value: C2CCCCCC
+MB3 Error: 0061 timestamp: 115737825 value: C3CCCCCC
+MB1 Error: 0DDE timestamp: 477961954 value: 1597915A
+MB2 Error: 0DDE timestamp: 477979807 value: 17FD0F78
+MB3 Error: 0DDE timestamp: 478061687 value: 17FE4E5F
+MB1 Error: 00B1 timestamp: 477980349 value: 17FD1362
+MB2 Error: 00B2 timestamp: 477980258 value: 00000001
+MB3 Error: 002F timestamp: 478061875 value: C1CCCCCC
+MB1 Error: 00B2 timestamp: 477980527 value: 00000002
+MB3 Error: 00B2 timestamp: 478062330 value: 00000001
+MB2 Error: 00B3 timestamp: 479479626 value: 00012000
+MB1 Error: 00B3 timestamp: 479479896 value: 00001822
+MB2 Error: 00B4 timestamp: 479479806 value: 00000000
+MB3 Error: 00B3 timestamp: 479561698 value: 000005DC
+MB1 Error: 00B4 timestamp: 479480077 value: 00000340
+Core 2 done
+MB3 Error: 00B4 timestamp: 479561878 value: 00000000
+Core 3 done
+MB1 Error: 00B5 timestamp: 524397132 value: 00000000
+Core 1 done
+
+Receiving file with size: 295940
+Wrote to 'binary.pnm'
+
+FINISHED
+[0m
+[0m
+scp co8:/tmp/.5kk03-ljR_xiwOg5QZPDyF/ttylog response.txt
+ssh co8 "bash -c \"rm -rf /tmp/.5kk03-ljR_xiwOg5QZPDyF\""
+bmptoppm: Windows BMP, 1024x768x24
+bmptoppm: WRITING PPM IMAGE
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start Uround_MCU_blocks.jpg
+rm -rf .build
+== Compiling monitor
+== Compiling core 1
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb1    -Imb_shared -L .platform/lib -DMB1 mb1/5kk03.c mb1/benchmarking.c mb1/color.c mb1/fast_int_idct.c mb1/huffman.c mb1/jpegtobmp.c mb1/main.c mb1/parse.c mb1/table_vld.c mb1/utils.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb1.elf -T .platform/mb1.ld -Imb1
+mb1/benchmarking.c: In function ‘main’:
+mb1/benchmarking.c:54: warning: implicit declaration of function ‘clear_frame_buffer’
+mb1/benchmarking.c:62: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:62: warning: comparison between pointer and integer
+mb1/benchmarking.c:64: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:64: warning: comparison between pointer and integer
+mb1/benchmarking.c:69: warning: implicit declaration of function ‘tile_main’
+mb1/color.c: In function ‘color_conversion’:
+mb1/color.c:83: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘JpegToBmp’:
+mb1/jpegtobmp.c:516: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘clear_frame_buffer’:
+mb1/jpegtobmp.c:679: warning: comparison between pointer and integer
+mb1/main.c: In function ‘tile_main’:
+mb1/main.c:59: warning: comparison between pointer and integer
+mb1/parse.c: In function ‘init_MCU’:
+mb1/parse.c:421: warning: comparison between pointer and integer
+== Compiling core 2
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb2    -Imb_shared -L .platform/lib -DMB2 mb2/benchmarking.c mb2/fast_int_idct.c mb2/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb2.elf -T .platform/mb2.ld -Imb2
+mb2/benchmarking.c: In function ‘main’:
+mb2/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb2/benchmarking.c:54: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb2/benchmarking.c:54: warning: comparison between pointer and integer
+mb2/main.c: In function ‘tile_main’:
+mb2/main.c:60: warning: comparison between pointer and integer
+mb2/main.c:90: warning: comparison between pointer and integer
+== Compiling core 3
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb3   -Imb_shared -L .platform/lib -DMB3 mb3/benchmarking.c mb3/color.c mb3/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb3.elf -T .platform/mb3.ld -Imb3
+mb3/benchmarking.c: In function ‘main’:
+mb3/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb3/benchmarking.c:53: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb3/benchmarking.c:53: warning: comparison between pointer and integer
+mb3/color.c: In function ‘color_conversion’:
+mb3/color.c:57: warning: comparison between pointer and integer
+mb3/color.c:107: warning: comparison between pointer and integer
+== Building file2bin
+== Creating memory image
+File size: 39494, padding: 2, total: 39496
+ssh co8 mkdir "/tmp/.5kk03-nkfuYNP6O80U8sHw"
+scp .build/monitor.elf .build/mb1.elf .build/mb2.elf .build/mb3.elf .build/data.bin co8:"/tmp/.5kk03-nkfuYNP6O80U8sHw"
+ssh co8 "/bin/bash -c \"source /opt/Xilinx/13.3/settings64.sh; cd /tmp/.5kk03-nkfuYNP6O80U8sHw; data2mem -bm /usr/share/5kk03/2014//system_bd.bmm -bt /usr/share/5kk03/2014//system.bit -bd mb1.elf tag mb1   -bd mb2.elf tag mb2   -bd mb3.elf tag mb3   -bd monitor.elf tag monitor -o b user.bit\""
+. /local_home/.apps/xilinx-13-3/ISE_DS/EDK/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/EDK
+. /local_home/.apps/xilinx-13-3/ISE_DS/ISE/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/ISE
+. /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead
+. /local_home/.apps/xilinx-13-3/ISE_DS/common/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/common
+. /local_home/.apps/xilinx-13-3/SDK/SDK/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/SDK
+. /local_home/.apps/xilinx-13-3/SDK/common/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/common
+ssh co8 ml-doimpact  -f "/tmp/.5kk03-nkfuYNP6O80U8sHw/user.bit" -b 921600 -t 60 -o /tmp/.5kk03-nkfuYNP6O80U8sHw/ttylog -i /tmp/.5kk03-nkfuYNP6O80U8sHw/data.bin  | 5kk03_parser 
+/usr/bin/ml-doimpact: line 353:  7140 Terminated              tail -n +1 -f "$FTT"
+FILE: /tmp/.5kk03-nkfuYNP6O80U8sHw/user.bit is [31m[0m old
+Note:
+Jobs in [1;31mred[0m are scheduled using bitspooler
+Jobs in [1;035mmagenta[0m are scheduled directly
+
+Waiting |Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -Waiting  \Waiting  |Waiting  /Waiting  [1;035musb21[0m:bitspooler:[1;034m0min[0m -
+Job accepted !
+Running impact
+Looking for impact output TAIL=6597 TEMP=6595
+[1;034mBoundary-scan chain validated successfully.[0m
+2: Device Temperature: [1;31m42.01[0m C, Min. Reading:   36.59 C, Max.Reading:   42.50 C
+2: VCCINT Supply: [1;31m1.008[0m V, Min. Reading:   1.005 V, Max.Reading:   1.011 V
+2: VCCAUX Supply: [1;31m2.499[0m V, Min. Reading:   2.490 V, Max.Reading:   2.502 V
+[1;034m'2': Programming device...[0m
+[1;034m'2': Programmed successfully.[0m
+
+Board programmed !
+[1;034mGrabbing tty:
+Starting monitor
+xil_printf: Hello World!
+Received: 1
+Have to receive 39496 bytes
+32768 remaining
+16384 remaining
+0 remaining
+Start DMA Mode
+97: mb1_fsl: 0x0
+104: mb2_fsl: 0x0
+111: mb3_fsl: 0x0
+121: mb1_fsl: 0xFFAA
+126: mb3_fsl: 0xFFAA
+132: mb3_fsl: 0xFFAA
+Tiles synced.
+MB2 timestamp: 58577196  value: 2 (00000002)
+MB3 timestamp: 59560287  value: 3 (00000003)
+MB2 timestamp: 113155291  value: 2 (00000002)
+MB3 timestamp: 113155542  value: 3 (00000003)
+MB2 Error: 0BBB timestamp: 153346203 value: 00000001
+MB3 Error: 002E timestamp: 153374466 value: C2CCCCCC
+MB3 Error: 0061 timestamp: 153374749 value: C3CCCCCC
+MB1 Error: 0DDE timestamp: 278045299 value: 076ECC59
+MB2 Error: 0DDE timestamp: 278063172 value: 09D44A75
+MB3 Error: 0DDE timestamp: 278083304 value: 09D4981E
+MB1 Error: 00B1 timestamp: 278063712 value: 09D44E53
+MB2 Error: 00B2 timestamp: 278063623 value: 00000001
+MB3 Error: 002F timestamp: 278083492 value: C1CCCCCC
+MB1 Error: 00B2 timestamp: 278063890 value: 00000002
+MB3 Error: 00B2 timestamp: 278083947 value: 00000001
+MB2 Error: 00B3 timestamp: 279562991 value: 00012000
+MB3 Error: 00B3 timestamp: 279583315 value: 000002DC
+MB1 Error: 00B3 timestamp: 279563259 value: 00001821
+MB2 Error: 00B4 timestamp: 279563171 value: 00000000
+MB3 Error: 00B4 timestamp: 279583495 value: 00000000
+MB1 Error: 00B4 timestamp: 279563440 value: 00000280
+Core 2 done
+Core 3 done
+MB1 Error: 00B5 timestamp: 324479855 value: 00000000
+Core 1 done
+
+Receiving file with size: 265884
+Wrote to 'binary.pnm'
+
+FINISHED
+[0m
+[0m
+scp co8:/tmp/.5kk03-nkfuYNP6O80U8sHw/ttylog response.txt
+ssh co8 "bash -c \"rm -rf /tmp/.5kk03-nkfuYNP6O80U8sHw\""
+bmptoppm: Windows BMP, 369x353x24
+bmptoppm: WRITING PPM IMAGE
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start Critical_size.jpg
+rm -rf .build
+== Compiling monitor
+== Compiling core 1
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb1    -Imb_shared -L .platform/lib -DMB1 mb1/5kk03.c mb1/benchmarking.c mb1/color.c mb1/fast_int_idct.c mb1/huffman.c mb1/jpegtobmp.c mb1/main.c mb1/parse.c mb1/table_vld.c mb1/utils.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb1.elf -T .platform/mb1.ld -Imb1
+mb1/benchmarking.c: In function ‘main’:
+mb1/benchmarking.c:54: warning: implicit declaration of function ‘clear_frame_buffer’
+mb1/benchmarking.c:62: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:62: warning: comparison between pointer and integer
+mb1/benchmarking.c:64: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb1/benchmarking.c:64: warning: comparison between pointer and integer
+mb1/benchmarking.c:69: warning: implicit declaration of function ‘tile_main’
+mb1/color.c: In function ‘color_conversion’:
+mb1/color.c:83: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘JpegToBmp’:
+mb1/jpegtobmp.c:516: warning: comparison between pointer and integer
+mb1/jpegtobmp.c: In function ‘clear_frame_buffer’:
+mb1/jpegtobmp.c:679: warning: comparison between pointer and integer
+mb1/main.c: In function ‘tile_main’:
+mb1/main.c:59: warning: comparison between pointer and integer
+mb1/parse.c: In function ‘init_MCU’:
+mb1/parse.c:421: warning: comparison between pointer and integer
+== Compiling core 2
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb2    -Imb_shared -L .platform/lib -DMB2 mb2/benchmarking.c mb2/fast_int_idct.c mb2/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb2.elf -T .platform/mb2.ld -Imb2
+mb2/benchmarking.c: In function ‘main’:
+mb2/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb2/benchmarking.c:54: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb2/benchmarking.c:54: warning: comparison between pointer and integer
+mb2/main.c: In function ‘tile_main’:
+mb2/main.c:60: warning: comparison between pointer and integer
+mb2/main.c:90: warning: comparison between pointer and integer
+== Compiling core 3
+/opt/Xilinx/13.3/ISE_DS/EDK/gnu/microblaze/lin64/bin/mb-gcc  -Wall -fmessage-length=0 -mno-xl-soft-mul -mxl-pattern-compare -mno-xl-soft-div -mxl-barrel-shift -mxl-pattern-compare -mno-xl-soft-div -mno-xl-soft-mul -mhard-float -mxl-float-convert -mxl-float-sqrt -mcpu=v8.00.a  -g3 -Wall -fsingle-precision-constant -I.platform/include -I.platform/include/mb3   -Imb_shared -L .platform/lib -DMB3 mb3/benchmarking.c mb3/color.c mb3/main.c mb_shared/5kk03-utils.c mb_shared/c-heap_consumer.c mb_shared/c-heap_producer.c -o .build/mb3.elf -T .platform/mb3.ld -Imb3
+mb3/benchmarking.c: In function ‘main’:
+mb3/benchmarking.c:46: warning: implicit declaration of function ‘tile_main’
+mb3/benchmarking.c:53: warning: passing argument 2 of ‘hw_dma_send_addr’ discards qualifiers from pointer target type
+mb3/benchmarking.c:53: warning: comparison between pointer and integer
+mb3/color.c: In function ‘color_conversion’:
+mb3/color.c:57: warning: comparison between pointer and integer
+mb3/color.c:107: warning: comparison between pointer and integer
+== Building file2bin
+== Creating memory image
+File size: 647, padding: 1, total: 648
+ssh co8 mkdir "/tmp/.5kk03-GpXiYOQPCzxBB3df"
+scp .build/monitor.elf .build/mb1.elf .build/mb2.elf .build/mb3.elf .build/data.bin co8:"/tmp/.5kk03-GpXiYOQPCzxBB3df"
+ssh co8 "/bin/bash -c \"source /opt/Xilinx/13.3/settings64.sh; cd /tmp/.5kk03-GpXiYOQPCzxBB3df; data2mem -bm /usr/share/5kk03/2014//system_bd.bmm -bt /usr/share/5kk03/2014//system.bit -bd mb1.elf tag mb1   -bd mb2.elf tag mb2   -bd mb3.elf tag mb3   -bd monitor.elf tag monitor -o b user.bit\""
+. /local_home/.apps/xilinx-13-3/ISE_DS/EDK/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/EDK
+. /local_home/.apps/xilinx-13-3/ISE_DS/ISE/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/ISE
+. /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/PlanAhead
+. /local_home/.apps/xilinx-13-3/ISE_DS/common/.settings64.sh /local_home/.apps/xilinx-13-3/ISE_DS/common
+. /local_home/.apps/xilinx-13-3/SDK/SDK/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/SDK
+. /local_home/.apps/xilinx-13-3/SDK/common/.settings64.sh /local_home/.apps/xilinx-13-3/SDK/common
+ssh co8 ml-doimpact  -f "/tmp/.5kk03-GpXiYOQPCzxBB3df/user.bit" -b 921600 -t 60 -o /tmp/.5kk03-GpXiYOQPCzxBB3df/ttylog -i /tmp/.5kk03-GpXiYOQPCzxBB3df/data.bin  | 5kk03_parser 
+/usr/bin/ml-doimpact: line 353:  8913 Terminated              tail -n +1 -f "$FTT"
+FILE: /tmp/.5kk03-GpXiYOQPCzxBB3df/user.bit is [31m[0m old
+Note:
+Jobs in [1;31mred[0m are scheduled using bitspooler
+Jobs in [1;035mmagenta[0m are scheduled directly
+
+Waiting |Waiting  -Waiting  \Waiting  |Waiting  /Waiting  -
+Job accepted !
+Running impact
+Looking for impact output TAIL=8334 TEMP=8332
+[1;034mBoundary-scan chain validated successfully.[0m
+2: Device Temperature: [1;31m41.52[0m C, Min. Reading:   36.59 C, Max.Reading:   42.50 C
+2: VCCINT Supply: [1;31m1.008[0m V, Min. Reading:   1.005 V, Max.Reading:   1.011 V
+2: VCCAUX Supply: [1;31m2.496[0m V, Min. Reading:   2.490 V, Max.Reading:   2.502 V
+[1;034m'2': Programming device...[0m
+[1;034m'2': Programmed successfully.[0m
+
+Board programmed !
+[1;034mGrabbing tty:
+Starting monitor
+xil_printf: Hello World!
+Received: 1
+Have to receive 648 bytes
+0 remaining
+Start DMA Mode
+97: mb1_fsl: 0x0
+104: mb2_fsl: 0x0
+111: mb3_fsl: 0x0
+121: mb1_fsl: 0xFFAA
+126: mb3_fsl: 0xFFAA
+132: mb3_fsl: 0xFFAA
+Tiles synced.
+MB2 timestamp: 3375654  value: 2 (00000002)
+MB3 timestamp: 4358745  value: 3 (00000003)
+MB2 timestamp: 57953739  value: 2 (00000002)
+MB3 timestamp: 57953980  value: 3 (00000003)
+MB2 Error: 0BBB timestamp: 98144641 value: 00000001
+MB3 Error: 002E timestamp: 98172184 value: C2CCCCCC
+MB3 Error: 0061 timestamp: 98172467 value: C3CCCCCC
+MB1 Error: 0DDE timestamp: 98453448 value: 0004C0C4
+MB2 Error: 0DDE timestamp: 98471300 value: 026A3EC5
+MB3 Error: 0DDE timestamp: 98553177 value: 026B7DA9
+MB1 Error: 00B1 timestamp: 98471843 value: 026A42AC
+MB2 Error: 00B2 timestamp: 98471751 value: 00000001
+MB3 Error: 002F timestamp: 98553365 value: C1CCCCCC
+MB1 Error: 00B2 timestamp: 98472021 value: 00000002
+MB3 Error: 00B2 timestamp: 98553820 value: 00000001
+MB2 Error: 00B3 timestamp: 99971119 value: 00012000
+MB1 Error: 00B3 timestamp: 99971390 value: 00001822
+MB2 Error: 00B4 timestamp: 99971299 value: 00000000
+MB3 Error: 00B3 timestamp: 100053188 value: 000005DC
+MB1 Error: 00B4 timestamp: 99971571 value: 00000340
+Core 2 done
+MB3 Error: 00B4 timestamp: 100053368 value: 00000000
+Core 3 done
+MB1 Error: 00B5 timestamp: 144887874 value: 00000000
+Core 1 done
+
+Receiving file with size: 68
+Wrote to 'binary.pnm'
+
+FINISHED
+[0m
+[0m
+scp co8:/tmp/.5kk03-GpXiYOQPCzxBB3df/ttylog response.txt
+ssh co8 "bash -c \"rm -rf /tmp/.5kk03-GpXiYOQPCzxBB3df\""
+bmptoppm: Windows BMP, 17x1x24
+bmptoppm: WRITING PPM IMAGE
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
+start Random_image.jpg
+bmptoppm: Windows BMP, 600x600x24
+bmptoppm: WRITING PPM IMAGE
+diff: binary.pnm: No such file or directory
+cp: cannot stat `binary.pnm': No such file or directory
+/usr/local/bin/memory.sh: line 3: /home/emb12/settings.bashrc: No such file or directory
